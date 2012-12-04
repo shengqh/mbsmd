@@ -68,13 +68,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\tools\gtest-1.6.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\tools\boost_1_52_0;D:\tools\gtest-1.6.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\tools\gtest-1.6.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\tools\boost_1_52_0;D:\tools\gtest-1.6.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(LibraryPath)</LibraryPath>
