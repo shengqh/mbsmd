@@ -50,8 +50,10 @@ private:
 
 class MatchExon: public vector<Location*> {
 private:
+	int transcriptCount;
 	string transcriptId;
 	bool retainedIntron;
+	long intronSize;
 public:
 	MatchExon();
 	virtual ~MatchExon();
@@ -75,7 +77,25 @@ public:
 	void setRetainedIntron(bool retainedIntron) {
 		this->retainedIntron = retainedIntron;
 	}
+
+	long getIntronSize() const {
+		return intronSize;
+	}
+
+	void setIntronSize(long intronSize) {
+		this->intronSize = intronSize;
+	}
+
+	int getTranscriptCount() const {
+		return transcriptCount;
+	}
+
+	void setTranscriptCount(int transcriptCount) {
+		this->transcriptCount = transcriptCount;
+	}
 };
+
+bool MatchExonComparison(const MatchExon* e1, const MatchExon* e2);
 
 } /* namespace cqs */
 #endif /* MATCHEXON_H_ */

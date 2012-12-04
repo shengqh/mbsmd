@@ -10,8 +10,10 @@
 namespace cqs {
 
 MatchExon::MatchExon() {
+	transcriptCount = 0;
 	transcriptId = "";
 	retainedIntron = false;
+	intronSize = 0;
 }
 
 MatchExon::~MatchExon() {
@@ -56,6 +58,10 @@ bool MatchExon::containLocations(const MatchExon* another) const{
 	}
 
 	return true;
+}
+
+bool MatchExonComparison(const MatchExon* e1, const MatchExon* e2){
+	return e1->getTranscriptCount() > e2->getTranscriptCount();
 }
 
 } /* namespace cqs */

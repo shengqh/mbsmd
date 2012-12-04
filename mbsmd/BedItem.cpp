@@ -6,6 +6,7 @@
  */
 
 #include "BedItem.h"
+#include <algorithm>
 
 namespace cqs {
 
@@ -62,6 +63,7 @@ void BedItem::mergeExon() {
 				exonk->setTranscriptId(
 					exonk->getTranscriptId() + ";"
 							+ exonj->getTranscriptId());
+				exonk->setTranscriptCount(exonk->getTranscriptCount() + exonj->getTranscriptCount());
 				delete exonj;
 				this->removeExon(j);
 				break;
@@ -82,6 +84,8 @@ void BedItem::mergeExon() {
 			}
 		}
 	}
+
+	sort(this->exons.begin(), this->exons.end(), MatchExonComparison);
 }
 
 }
