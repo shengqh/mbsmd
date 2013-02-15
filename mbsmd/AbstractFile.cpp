@@ -18,18 +18,18 @@ AbstractFile::~AbstractFile() {
 	}
 }
 
-bool AbstractFile::Open(string filename) {
+bool AbstractFile::open(string filename) {
 	read.open(filename.c_str());
 	return read.is_open();
 }
 
-void AbstractFile::Close() {
+void AbstractFile::close() {
 	if (read.is_open()) {
 		read.close();
 	}
 }
 
-void AbstractFile::Reset() {
+void AbstractFile::reset() {
 	read.seekg(0, ios_base::beg);
 }
 

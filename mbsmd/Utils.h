@@ -13,13 +13,18 @@
 
 namespace cqs {
 
+using namespace std;
+
 class Utils {
 public:
-	static std::vector<std::string> &Split2(const std::string &s, char delim,
-			std::vector<std::string> &result);
+	static vector<string> &Split2(const string &s, char delim, vector<string> &result);
 
-	static std::vector<std::string> Split(const std::string &s, char delim);
+	static vector<string> Split(const string &s, char delim);
+
+	static string toPositiveStrand(const string& sequence);
 };
+
+template<typename T, int size> int GetArrLength(T(&)[size]){return size;}
 
 } /* namespace cqs */
 #endif /* UTILS_H_ */

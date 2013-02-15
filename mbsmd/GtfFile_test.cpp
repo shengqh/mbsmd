@@ -12,12 +12,11 @@
 
 namespace cqs {
 
-TEST(GtfFileTest, NextTest) {
-	string filename =
-			"D:/sqh/programs/gcc/mbsmd/data/Homo_sapiens.GRCh37.68.slim.gtf";
+string filename = "D:/sqh/programs/vc/mbsmd/mbsmd/data/Homo_sapiens.GRCh37.68.slim.gtf";
 
+TEST(GtfFileTest, NextTest) {
 	GtfFile* file = new GtfFile();
-	file->Open(filename);
+	file->open(filename);
 	GtfItem* item = file->next();
 	ASSERT_STREQ("GL000213.1", item->getSeqname().c_str());
 	ASSERT_STREQ("miRNA", item->getSource().c_str());
@@ -33,11 +32,8 @@ TEST(GtfFileTest, NextTest) {
 }
 
 TEST(GtfFileTest, NextExonTest) {
-	string filename =
-			"D:/sqh/programs/gcc/mbsmd/data/Homo_sapiens.GRCh37.68.slim.gtf";
-
 	GtfFile* file = new GtfFile();
-	file->Open(filename);
+	file->open(filename);
 	GtfItem* item = file->nextExon();
 	ASSERT_STREQ("GL000213.1", item->getSeqname().c_str());
 	ASSERT_STREQ("protein_coding", item->getSource().c_str());
@@ -53,9 +49,6 @@ TEST(GtfFileTest, NextExonTest) {
 }
 
 TEST(GtfFileTest, NextTranscriptExonItemTest) {
-	string filename =
-			"D:/sqh/programs/gcc/mbsmd/data/Homo_sapiens.GRCh37.68.slim.gtf";
-
 	GtfTranscriptItemFile* file = new GtfTranscriptItemFile();
 	file->Open(filename);
 	GtfTranscriptItem* tr = file->next();

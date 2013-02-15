@@ -42,7 +42,7 @@ string GtfTranscriptItem::getChrom(){
 	return "";
 }
 
-int GtfTranscriptItem::find(long start, long end) {
+int GtfTranscriptItem::findIndex(long start, long end) {
 	if(this->size() == 0){
 		return -1;
 	}
@@ -70,6 +70,13 @@ char GtfTranscriptItem::getStrand() {
 		return (*this)[0]->getStrand();
 	}
 	return '.';
+}
+
+void GtfTranscriptItem::setStartToZeroBased(){
+	for (size_t i = 0; i < this->size(); i++) {
+		(*this)[i]->setStart((*this)[i]->getStart() - 1);
+		(*this)[i]->setEnd((*this)[i]->getEnd() - 1);
+	}
 }
 
 }

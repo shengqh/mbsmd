@@ -6,6 +6,7 @@
  */
 
 #include "BedItem.h"
+#include "BedMatchFile.h"
 #include <gtest/gtest.h>
 
 namespace cqs {
@@ -37,6 +38,20 @@ TEST(BedItemTest, MergeExonTest) {
 	ASSERT_STREQ("E1;E2", item->getExons()[0]->getTranscriptId().c_str());
 
 	delete item;
+}
+
+TEST(BedItemTest, MergeExon2Test) {
+	string filename = "D:/sqh/programs/vc/mbsmd/mbsmd/data/match.tsv";
+	BedMatchFile* file = new BedMatchFile();
+	file->open(filename);
+	BedItem* item = file->next();
+
+	ASSERT_EQ(3, item->getExons().size());
+	item->mergeExon();
+	ASSERT_EQ(1, item->getExons().size());
+	ASSERT_STREQ("ENST00000538797", item->getExons()[0]->getTranscriptId().c_str());
+	delete item;
+	delete file;
 }
 
 }

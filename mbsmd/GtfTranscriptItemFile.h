@@ -10,10 +10,9 @@
 
 namespace cqs {
 
-	using namespace std;
+using namespace std;
 
-class GtfTranscriptItemFile
-{
+class GtfTranscriptItemFile {
 private:
 	GtfFile* file;
 	GtfItem* last;
@@ -31,5 +30,4 @@ public:
 }
 
 #endif /* GTFTRANSCIPTITEMFILE_H_ */
-
 

@@ -10,6 +10,13 @@
 
 namespace cqs {
 
+TEST(LocationTest, ParseTest) {
+	Location* loc = Location::parse("17970729-17970782");
+	ASSERT_EQ(17970729, loc->getStart());
+	ASSERT_EQ(17970782, loc->getEnd());
+	delete loc;
+}
+
 TEST(MatchExonTest, EqualLocationsTest) {
 	MatchExon* e1 = new MatchExon();
 	e1->push_back(new Location(1,10));

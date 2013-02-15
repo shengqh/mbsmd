@@ -22,9 +22,9 @@ public:
 	AbstractFile();
 	virtual ~AbstractFile();
 
-	virtual bool Open(const string filename);
-	virtual void Close();
-	virtual void Reset();
+	virtual bool open(const string filename);
+	virtual void close();
+	virtual void reset();
 };
 
 }

@@ -9,6 +9,7 @@
 #define BEDITEMS_H_
 
 #include "BedItem.h"
+#include "Sequence.h"
 #include <vector>
 
 namespace cqs {
@@ -20,6 +21,7 @@ public:
 	BedItems();
 	virtual ~BedItems();
 	void setExpectLength(int length);
+	void fillSequence(Sequence* seq);
 };
 
 } /* namespace cqs */

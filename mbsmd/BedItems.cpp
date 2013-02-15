@@ -25,4 +25,14 @@ void BedItems::setExpectLength(int length) {
 	}
 }
 
+void BedItems::fillSequence(Sequence* seq){
+		BedItems::iterator jiter = this->begin();
+		BedItems::iterator jiterEnd = this->end();
+		while(jiter != jiterEnd){
+			(*jiter)->fillSequence(seq);
+			jiter++;
+		}
+}
+
+
 } /* namespace cqs */

@@ -45,6 +45,9 @@
     <ClInclude Include="MatchExon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BedMatchFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractFile.cpp">
@@ -98,5 +101,25 @@
     <ClCompile Include="BedItem_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FastaFile_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FastaFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BedMatchFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BedMatchFile_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\dna.fa" />
+    <None Include="data\Homo_sapiens.GRCh37.68.test.gtf" />
+    <None Include="data\peaks.test.bed" />
   </ItemGroup>
 </Project>

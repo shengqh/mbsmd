@@ -8,6 +8,7 @@
 #ifndef MATCHEXON_H_
 #define MATCHEXON_H_
 
+#include "Sequence.h"
 #include <string>
 #include <vector>
 
@@ -43,6 +44,11 @@ public:
 		this->start = start;
 	}
 
+	long length() const{
+		return this->end - this->start + 1;
+	}
+
+	static Location* parse(const string& loc);
 private:
 	long start;
 	long end;
@@ -54,6 +60,8 @@ private:
 	string transcriptId;
 	bool retainedIntron;
 	long intronSize;
+	string sequence;
+	string transcriptType;
 public:
 	MatchExon();
 	virtual ~MatchExon();
@@ -93,6 +101,24 @@ public:
 	void setTranscriptCount(int transcriptCount) {
 		this->transcriptCount = transcriptCount;
 	}
+
+	const string& getSequence() const {
+		return sequence;
+	}
+
+	void setSequence(const string& value) {
+		this->sequence = value;
+	}
+
+	const string& getTranscriptType() const {
+		return transcriptType;
+	}
+
+	void setTranscriptType(const string& value) {
+		this->transcriptType = value;
+	}
+
+	void fillSequence(Sequence* seq, char strand);
 };
 
 bool MatchExonComparison(const MatchExon* e1, const MatchExon* e2);

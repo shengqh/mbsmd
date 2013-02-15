@@ -15,11 +15,15 @@
     <ClInclude Include="BedFile.h" />
     <ClInclude Include="BedItem.h" />
     <ClInclude Include="BedItems.h" />
+    <ClInclude Include="BedMap.h" />
+    <ClInclude Include="BedMatchFile.h" />
+    <ClInclude Include="FastaFile.h" />
     <ClInclude Include="GtfFile.h" />
     <ClInclude Include="GtfItem.h" />
     <ClInclude Include="GtfTranscriptItem.h" />
     <ClInclude Include="GtfTranscriptItemFile.h" />
     <ClInclude Include="MatchExon.h" />
+    <ClInclude Include="Sequence.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -27,12 +31,16 @@
     <ClCompile Include="BedFile.cpp" />
     <ClCompile Include="BedItem.cpp" />
     <ClCompile Include="BedItems.cpp" />
+    <ClCompile Include="BedMap.cpp" />
+    <ClCompile Include="BedMatchFile.cpp" />
+    <ClCompile Include="FastaFile.cpp" />
     <ClCompile Include="GtfFile.cpp" />
     <ClCompile Include="GtfItem.cpp" />
     <ClCompile Include="GtfTranscriptItem.cpp" />
     <ClCompile Include="GtfTranscriptItemFile.cpp" />
     <ClCompile Include="MatchExon.cpp" />
     <ClCompile Include="mbsmd.cpp" />
+    <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
