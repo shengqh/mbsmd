@@ -8,7 +8,9 @@
 #ifndef BEDITEM_H_
 #define BEDITEM_H_
 
+#include "GtfTranscriptItem.h"
 #include "MatchExon.h"
+#include "Sequence.h"
 #include <string>
 #include <vector>
 
@@ -27,10 +29,16 @@ private:
 	long expectStart;
 	long expectEnd;
 	vector<MatchExon*> exons;
+	string directExpectSequence;
 public:
 	BedItem();
 	virtual ~BedItem();
+
+	long getLength();
+
 	void setExpectLength(int length);
+
+	bool isInExon();
 
 	const string& getChrom() const {
 		return chrom;
@@ -108,7 +116,19 @@ public:
 		this->exons.erase(this->exons.begin() + index);
 	}
 
+	const string& getDirectExpectSequence() const {
+		return directExpectSequence;
+	}
+
+	void setDirectExpectSequence(const string& value) {
+		this->directExpectSequence = value;
+	}
+
 	void mergeExon();
+
+	void matchGtfTranscriptItem(GtfTranscriptItem* gitem);
+
+	void fillSequence(Sequence* seq);
 };
 
 }

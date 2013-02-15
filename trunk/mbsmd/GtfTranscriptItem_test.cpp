@@ -13,7 +13,7 @@ namespace cqs {
 
 GtfTranscriptItem* readData(GtfTranscriptItem** next){
 	string filename =
-			"D:/sqh/programs/gcc/mbsmd/data/Homo_sapiens.GRCh37.68.slim.gtf";
+			"D:/sqh/programs/vc/mbsmd/mbsmd/data/Homo_sapiens.GRCh37.68.slim.gtf";
 
 	GtfTranscriptItemFile* file = new GtfTranscriptItemFile();
 	file->Open(filename);
@@ -43,7 +43,7 @@ TEST(GtfTranscriptItemTest, IsSameTranscriptTest) {
 TEST(GtfTranscriptItemTest, FindTest) {
 	GtfTranscriptItem* next;
 	GtfTranscriptItem* item = readData(&next);
-	int index = item->find(134290,134380);
+	int index = item->findIndex(134290,134380);
 	ASSERT_TRUE(index >= 0);
 	GtfItem* find = (*item)[index];
 	ASSERT_EQ(2, find->getExonNumber()); 

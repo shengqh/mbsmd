@@ -32,26 +32,36 @@ BedItem* BedFile::next() {
 			return item;
 		}
 	}
-	return 0;
+	return NULL;
 }
 
 BedItems* BedFile::readBedFile(const string filename) {
 	BedItems* result = new BedItems();
 
 	BedFile* file = new BedFile();
-	if(!file->Open(filename)){
+	if (!file->open(filename)) {
 		delete file;
 		throw string("Cannot open file ") + filename;
 	}
 
 	BedItem* item;
-	while((item = file->next()) != 0){
+	while ((item = file->next()) != 0) {
 		result->push_back(item);
 	}
 
 	delete file;
 
 	return result;
+}
+
+void BedFile::writeHeader(ostream& os) {
+	os << "chrom\tstart\tend\tname\tscore\tstrand" << endl;
+}
+
+void BedFile::writeItem(ostream& os, const BedItem* item) {
+	os << item->getChrom() << "\t" << item->getChromStart() << "\t"
+			<< item->getChromEnd() << "\t" << item->getName() << "\t"
+			<< item->getScore() << "\t" << item->getStrand() << endl;
 }
 
 } /* namespace cqs */

@@ -15,6 +15,7 @@
     <ClInclude Include="BedFile.h" />
     <ClInclude Include="BedItem.h" />
     <ClInclude Include="BedItems.h" />
+    <ClInclude Include="BedMatchFile.h" />
     <ClInclude Include="GtfFile.h" />
     <ClInclude Include="GtfItem.h" />
     <ClInclude Include="GtfTranscriptItem.h" />
@@ -29,6 +30,10 @@
     <ClCompile Include="BedItem.cpp" />
     <ClCompile Include="BedItems.cpp" />
     <ClCompile Include="BedItem_test.cpp" />
+    <ClCompile Include="BedMatchFile.cpp" />
+    <ClCompile Include="BedMatchFile_test.cpp" />
+    <ClCompile Include="FastaFile.cpp" />
+    <ClCompile Include="FastaFile_test.cpp" />
     <ClCompile Include="GtfFile.cpp" />
     <ClCompile Include="GtfFile_test.cpp" />
     <ClCompile Include="GtfItem.cpp" />
@@ -39,7 +44,13 @@
     <ClCompile Include="MatchExon.cpp" />
     <ClCompile Include="MatchExon_test.cpp" />
     <ClCompile Include="mbsmd_test.cpp" />
+    <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\dna.fa" />
+    <None Include="data\Homo_sapiens.GRCh37.68.test.gtf" />
+    <None Include="data\peaks.test.bed" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A548B31F-5197-4289-B37A-849B9EAA38FE}</ProjectGuid>

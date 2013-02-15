@@ -27,6 +27,9 @@ public:
 	BedItem* next();
 
 	static BedItems* readBedFile(const string filename);
+
+	static void writeHeader(ostream& os);
+	static void writeItem(ostream& os, const BedItem* item);
 };
 
 } /* namespace cqs */

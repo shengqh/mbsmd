@@ -11,7 +11,7 @@
 namespace cqs {
 
 TEST(BedFileTest, ReadFileTest) {
-	string filename = "D:/sqh/programs/gcc/mbsmd/data/peaks.slim.bed";
+	string filename = "D:/sqh/programs/vc/mbsmd/mbsmd/data/peaks.slim.bed";
 	BedItems* items = BedFile::readBedFile(filename);
 	ASSERT_EQ(11, items->size());
 	ASSERT_STREQ("21", (*items)[0]->getChrom().c_str());

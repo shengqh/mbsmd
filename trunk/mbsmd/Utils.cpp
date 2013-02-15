@@ -11,19 +11,41 @@
 
 namespace cqs {
 
-std::vector<std::string>& Utils::Split2(const std::string &s, char delim,
-		std::vector<std::string>& result) {
-	std::stringstream ss(s);
-	std::string item;
-	while (std::getline(ss, item, delim)) {
+vector<string>& Utils::Split2(const string &s, char delim, vector<string>& result) {
+	stringstream ss(s);
+	string item;
+	while (getline(ss, item, delim)) {
 		result.push_back(item);
 	}
 	return result;
 }
 
-std::vector<std::string> Utils::Split(const std::string &s, char delim) {
-	std::vector<std::string> result;
+vector<string> Utils::Split(const string &s, char delim) {
+	vector<string> result;
 	return Split2(s, delim, result);
 }
+
+string Utils::toPositiveStrand(const string& sequence){
+	stringstream result;
+	string::const_reverse_iterator iterEnd = sequence.rend();
+	for (string::const_reverse_iterator iter =
+			sequence.rbegin(); iter != iterEnd;
+			iter++) {
+		if (*iter == 'A') {
+			result << 'T';
+		} else if (*iter == 'T') {
+			result << 'A';
+		} else if (*iter == 'G') {
+			result << 'C';
+		} else if (*iter == 'C') {
+			result << 'G';
+		} else {
+			cout << "bp = " << *iter << endl;
+			result << *iter;
+		}
+	}
+	return result.str();
+}
+
 
 } /* namespace cqs */

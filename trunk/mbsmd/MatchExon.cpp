@@ -6,8 +6,21 @@
  */
 
 #include "MatchExon.h"
+#include "Utils.h"
+#include <sstream>
+#include <boost/algorithm/string.hpp>
 
 namespace cqs {
+
+Location* Location::parse(const string& loc){
+	vector<string> values;
+	Utils::Split2(loc, '-', values);
+	Location* result = new Location();
+	result->setStart(atol(values[0].c_str()));
+	result->setEnd(atol(values[1].c_str()));
+	return result;
+}
+
 
 MatchExon::MatchExon() {
 	transcriptCount = 0;
@@ -28,7 +41,7 @@ bool MatchExon::equalLocations(const MatchExon* another) const {
 		return false;
 	}
 
-	for (int i = 0; i < this->size(); i++) {
+	for (size_t i = 0; i < this->size(); i++) {
 		if ((*this)[i]->getStart() != (*another)[i]->getStart()
 				|| (*this)[i]->getEnd() != (*another)[i]->getEnd()) {
 			return false;
@@ -42,10 +55,10 @@ bool MatchExon::containLocations(const MatchExon* another) const{
 		return false;
 	}
 
-	for (int i = 0; i < another->size(); i++) {
+	for (size_t i = 0; i < another->size(); i++) {
 		Location* loci = (*another)[i];
 		bool contained = false;
-		for(int j = 0;j < this->size();j++){
+		for(size_t j = 0;j < this->size();j++){
 			Location* locj = (*this)[j];
 			if(locj->getStart() <= loci->getStart() && locj->getEnd() >= loci->getEnd()){
 				contained = true;
@@ -58,6 +71,22 @@ bool MatchExon::containLocations(const MatchExon* another) const{
 	}
 
 	return true;
+}
+
+void MatchExon::fillSequence(Sequence* seq, char strand){
+	stringstream ss;
+	for (size_t l = 0; l < this->size(); l++) {
+		Location* loc = (*this)[l];
+		ss	<< seq->getSequence().substr(loc->getStart(), loc->length());
+	}
+	
+	string seqstr = ss.str();
+	boost::to_upper(seqstr);
+
+	if (strand == '-') {
+		seqstr = Utils::toPositiveStrand(seqstr);
+	}
+	this->setSequence(seqstr);
 }
 
 bool MatchExonComparison(const MatchExon* e1, const MatchExon* e2){

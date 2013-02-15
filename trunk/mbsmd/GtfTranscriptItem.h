@@ -25,7 +25,9 @@ public:
 	bool isSameTranscript(GtfItem* item);
 	string getTranscriptId();
 	char getStrand();
-	int find(long start, long end);
+	int findIndex(long start, long end);
+
+	virtual void setStartToZeroBased();
 };
 
 }
